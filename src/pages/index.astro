@@ -3,6 +3,7 @@ import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
 import LinkColumn from '../components/ui/LinkColumn.astro';
 import NavAstroComponent from '../components/Nav.astro';
 import PageLayoutAstroComponent from '../components/PageLayout.astro';
+import { Image } from 'astro:assets';
 
 const building = [
   {
@@ -70,9 +71,13 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="flex flex-col gap-4 mb-8 sm:flex-row sm:justify-between ">
       <!-- Profile -->
       <div class="flex min-w-0 flex-row items-center gap-4">
-        <img
+        <Image
           src={`${baseUrl}profile.png`}
-          alt="Profile"
+          alt=""
+          width={200}
+          height={200}
+          format='webp'
+          loading={'eager'}
           class="h-[70px] w-[70px] shrink-0 rounded-md"
         />
         <div class="mt-[-3px]">
