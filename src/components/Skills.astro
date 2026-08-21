@@ -1,0 +1,74 @@
+---
+interface SkillGroup {
+  label: string;
+  skills: string[];
+}
+
+interface Props {
+  heading?: string;
+  groups?: SkillGroup[];
+}
+
+const DEFAULT_GROUPS: SkillGroup[] = [
+  {
+    label: "Web Developments:",
+    skills: [
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "Tailwind CSS",
+      "Vue.js",
+      "Astro.js",
+      "Express.js"
+    ],
+  },
+  {
+    label: "Mobile App Developments:",
+    skills: [
+      "Dart",
+      "Flutter",
+    ],
+  },
+  {
+    label: "Database & Tools: ",
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "Git",
+      "Docker",
+      "CI/CD",
+      "Figma",
+      "Postman",
+    ],
+  },
+];
+
+const { heading = "Technical Skills", groups = DEFAULT_GROUPS } = Astro.props as Props;
+---
+
+<section class="mb-8">
+  <h2 class="m-0 text-sm font-medium text-fg">{heading}</h2>
+  <div class="mt-4 flex flex-col gap-3 ">
+    {
+      groups.map((group) => (
+        <div>
+          <h3 class="m-0 mb-2 text-sm text-fg/70">
+            {group.label}
+          </h3>
+          <ul class="m-0 flex flex-wrap gap-2 list-none p-0">
+            {group.skills.map((skill) => (
+              <li>
+                <span class="inline-block rounded-md border border-fg/10 bg-fg/5 px-2 py-1.5 text-xs text-fg/80">
+                  {skill}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

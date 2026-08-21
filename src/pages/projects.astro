@@ -1,0 +1,11 @@
+---
+import BaseLayoutAstroComponent from "../layouts/BaseLayout.astro"
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+<BaseLayoutAstroComponent  title="Projects " description="Page not found">
+   <div class="flex flex-col h-screen gap-4 items-center justify-center ">
+      <p class="text-sm">Comming Soon...</p>
+      <a href={baseUrl} class="underline text-sm">Return Home</a>
+  </div>
+</BaseLayoutAstroComponent>

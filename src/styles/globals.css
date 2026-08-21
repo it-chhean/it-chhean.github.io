@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/fonts/SF-Pro-Text-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* --color-bg: #ffffff; */
+  --color-bg: #111111;
+  --color-fg: #F5F5F5;
+  --color-muted: #AAAAAA;
+  --color-muted-2: #767676;
+  --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype",
+    "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: #f0f0f0;
+  color: #0d0d0d;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: white;
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.text-sm {
+  font-size: 15px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@layer components {
+  /* Fade-in animation on load */
+  .fade-in {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+  .fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+  .fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+  .fade-in-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+  .fade-in-delay-5 { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Hide the default disclosure triangle across browsers */
+.responsibilities summary::-webkit-details-marker {
+  display: none;
+}
+.responsibilities summary::marker {
+  content: "";
+}
+
+.responsibilities[open] .chevron {
+  transform: rotate(90deg);
+}

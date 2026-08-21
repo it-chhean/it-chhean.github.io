@@ -1,0 +1,17 @@
+---
+interface Props {
+  footerContent?: string;
+}
+---
+
+<div class="flex min-h-svh flex-col px-4 pt-[8vh] font-sans sm:px-6">
+  <!-- Main content -->
+  <div class="mx-auto w-full max-w-[640px] text-left">
+    <slot />
+  </div>
+
+  <!-- Footer -->
+  <footer class="mx-auto mt-auto w-full max-w-[640px] pb-8 pt-16 text-left">
+    <slot name="footer" />
+  </footer>
+</div>

@@ -1,0 +1,175 @@
+---
+import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
+import LinkColumn from '../components/ui/LinkColumn.astro';
+import NavAstroComponent from '../components/Nav.astro';
+import PageLayoutAstroComponent from '../components/PageLayout.astro';
+
+const building = [
+  {
+    title: 'Professor Assistant',
+    href: '/',
+    external: false,
+    description: 'Implementing projects and Networking.',
+  },
+];
+
+const projects = [
+  {
+    title: 'Configly',
+    href: 'https://configly.site',
+    external: true,
+    description: 'Convert configuraition file instantly.',
+  },
+  {
+    title: 'Mhob',
+    href: 'https://mhob.vercel.app',
+    external: true,
+    description: 'Khmer foods tranditional recipe',
+  },
+];
+
+const writing = [
+  {
+    title: 'React Hook Getter Pattern',
+    href: '/writing/hook-getter',
+    external: false,
+    description: 'Simple, efficient React state hook in 50 lines.',
+  },
+  {
+    title: 'Redesign 2021',
+    href: '/writing/redesign-2021',
+    external: false,
+    description: 'Return to simplicity.',
+  },
+  {
+    title: 'All writing',
+    href: '/writing',
+    external: false,
+    description: 'Infrequent thoughts on design and code.',
+  },
+];
+
+const columns = [
+  { label: 'Work Experience', items: building },
+  { label: 'Projects', items: projects },
+  { label: 'Writing', items: writing },
+];
+
+const year = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayoutAstroComponent
+  title="Chhong Bunchhean"
+  description="Crafting interfaces. Webmaster at Linear. Building polished software and web experiences."
+>
+<PageLayoutAstroComponent>
+  <main>
+    <!-- Intro -->
+    <section class="mb-0">
+    <div class="flex flex-col gap-4 mb-8 sm:flex-row sm:justify-between ">
+      <!-- Profile -->
+      <div class="flex min-w-0 flex-row items-center gap-4">
+        <img
+          src={`${baseUrl}profile.png`}
+          alt="Profile"
+          class="h-[70px] w-[70px] shrink-0 rounded-md"
+        />
+        <div class="mt-[-3px]">
+          <h1 class="text-lg font-normal text-fg">
+            Bunchhean Chhoung
+          </h1>
+          <p class="text-sm text-fg">
+            Junior Software Developer 
+          </p>
+          <p class="text-sm text-muted">
+            @it-bunchhean
+          </p>
+        </div>
+      </div>
+      <!-- Links -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 text-fg/80 sm:justify-end">
+        <a
+          href="https://github.com/it-chhean"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline decoration-white/35 text-sm underline-offset-[3px]"
+          title="Github"
+        >
+            GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/chhoung-bunchhean/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline decoration-white/35 text-sm underline-offset-[3px]"
+          title="LinkedIn"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+      </div>
+      <p class="text-sm font-medium mb-4">About</p>
+      <p class="text-sm leading-relaxed text-muted">
+          I'm a person who enjoys solving real-world problems with technology!
+        I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable. 
+      </p>
+    </section>
+
+    <!-- Columns -->
+    <section class="grid grid-cols-3 gap-8 my-[72px] max-sm:grid-cols-1 max-sm:gap-10 max-sm:my-14">
+      {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
+    </section>
+
+    <!-- Now -->
+    <section class="mb-16">
+      <h2 class="mb-4 text-sm font-medium text-fg">
+        Now
+      </h2>
+
+      <p class="text-muted text-sm mb-[18px]">
+        Developing skill through doing, exploring passion and
+        interests, imbuing quality. Mindful that
+        <em>everything around me is someone&rsquo;s life work.</em>
+      </p>
+
+      <p class="text-muted text-sm mb-[18px]">
+      All I want to do is build websites & mobile applications. Optimization, performance&mdash;the web/mobile is an endless medium of
+        opportunity and creativity of which I&rsquo;ve only scratched the
+        surface.
+      </p>
+
+    </section>
+
+    <!-- Connect -->
+    <section class="mb-20">
+      <h2 class="mb-4 text-sm font-medium text-fg">Connect</h2>
+      <p class="text-muted text-sm">
+        Reach me at{' '}
+        <a
+          href="https://twitter.com/pacocoursey"
+          target="_blank"
+          title="Github"
+          rel="noopener noreferrer"
+          class="underline decoration-white/35 underline-offset-[3px]"
+        >
+          @it-chhean
+        </a>{' '}
+        or{' '}
+        <a href="mailto:bchhean@gmail.com" title="Email" class="underline decoration-white/35 underline-offset-[3px]">bchhean@gmail.com</a>.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex items-center justify-between border-t-[0.02em] border-muted/30 pt-6 text-muted-2 text-[13px] ">
+      <span class="inline-flex items-center gap-2">
+        © {year} all rights reserved.
+      </span>
+      <NavAstroComponent/>
+    </footer>
+  </main>
+</PageLayoutAstroComponent>
+
+</BaseLayoutAstroComponent>

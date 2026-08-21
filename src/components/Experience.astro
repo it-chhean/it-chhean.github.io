@@ -1,0 +1,113 @@
+---
+import { ChevronDown, ChevronRight } from '@lucide/astro';
+
+export interface WorkExperienceItem {
+  role: string;
+  team?: string;
+  company: string;
+  companyHref?: string;
+  location?: string;
+  startDate: string;
+  endDate: string;
+  summary: string;
+  responsibilities: string[];
+  tags: string[];
+}
+
+interface Props {
+  items?: WorkExperienceItem[];
+  heading?: string;
+}
+
+const DEFAULT_ITEMS: WorkExperienceItem[] = [
+  {
+    role: "Unemployee",
+    team: "Unknown",
+    company: "Company Name",
+    companyHref: "/",
+    location: "City",
+    startDate: "0000-00",
+    endDate: "Present",
+    summary: "So, currently I'm a student.",
+    responsibilities: [
+      "I try to seeking for jobs!",
+    ],
+    tags: ["None", "None", "None"],
+  },
+];
+
+const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
+---
+
+<section class="mb-8">
+  <h2 class="m-0 text-sm font-medium text-fg">{heading}</h2>
+
+  <ol class="mt-4 pl-5">
+    {
+      items.map((item, index) => (
+        <li class="relative list-disc ">
+          <div class={index !== items.length - 1 ? "pb-8" : ""}>
+            <h3 class="m-0 text-[15px] font-semibold text-white">
+              {item.role}
+              {item.team ? ` - ${item.team}` : ""}
+            </h3>
+
+            <p class="mt-1 text-[14px]">
+              {item.companyHref ? (
+                <a
+                  href={item.companyHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-white underline decoration-white/35 underline-offset-[3px] transition-[text-decoration-color] duration-150 hover:decoration-current"
+                >
+                  {item.company}
+                </a>
+              ) : (
+                <span class="text-white">{item.company}</span>
+              )}
+              {item.location ? (
+                <span class="text-muted"> • {item.location}</span>
+              ) : null}
+            </p>
+
+            <p class="mt-1 text-[13px] text-muted">
+              {item.startDate} - {item.endDate}
+            </p>
+
+            <p class="mt-2 text-[14px] leading-[1.5] text-muted">
+              {item.summary}
+            </p>
+
+            {item.responsibilities.length > 0 && (
+              <details class="responsibilities mt-2">
+                <summary class="flex w-fit cursor-pointer list-none items-center gap-1 border-b border-dashed border-white/35 text-[13px] text-muted select-none">
+                  <ChevronRight
+                    size={16}
+                    class="chevron shrink-0 transition-transform duration-200"
+                  />
+                  View responsibilities
+                </summary>
+
+                <ul class="mt-2 list-disc space-y-1.5 pl-5 ">
+                  {item.responsibilities.map((r) => (
+                    <li class="text-[14px] leading-[1.5] text-muted">{r}</li>
+                  ))}
+                </ul>
+              </details>
+            )}
+
+            {item.tags.length > 0 && (
+              <div class="mt-3 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[12px] text-muted">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
