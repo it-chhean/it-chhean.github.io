@@ -21,18 +21,20 @@ interface Props {
 
 const DEFAULT_ITEMS: WorkExperienceItem[] = [
   {
-    role: "Unemployee",
-    team: "Unknown",
-    company: "Company Name",
+    role: "Intern Full-Stack Developer ",
+    team: "Innovation",
+    company: "WING Bank (Cambodia) Plc",
     companyHref: "/",
-    location: "City",
-    startDate: "0000-00",
+    location: "Phnom Penh",
+    startDate: "Jun 2026",
     endDate: "Present",
-    summary: "So, currently I'm a student.",
+    summary: "Intership engineering in the Innovation Department, working on research, prototyping, and production development  of AI-driven system within a regulated banking enviroment.",
     responsibilities: [
-      "I try to seeking for jobs!",
+      "Design and develop AI-enabled internal platforms supporting automation and decision-making workflows in a regulated financial context",
+      "Lead hands-on R&D initiatives involving LLM integration, system experimentation, and feasibility assessment for production adoption",
+      "Build and maintain full-stack systems (web, backend, APIs) with a focus on scalability, security, and maintainability",
     ],
-    tags: ["None", "None", "None"],
+    tags: ["Next.js", "Node.js", "Spring Boot"],
   },
 ];
 
@@ -47,7 +49,7 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
       items.map((item, index) => (
         <li class="relative list-disc ">
           <div class={index !== items.length - 1 ? "pb-8" : ""}>
-            <h3 class="m-0 text-[15px] font-semibold text-white">
+            <h3 class="m-0 text-[15px] font-normal text-white">
               {item.role}
               {item.team ? ` - ${item.team}` : ""}
             </h3>
