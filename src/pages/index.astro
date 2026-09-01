@@ -4,6 +4,7 @@ import LinkColumn from '../components/ui/LinkColumn.astro';
 import NavAstroComponent from '../components/Nav.astro';
 import PageLayoutAstroComponent from '../components/PageLayout.astro';
 import { Image } from 'astro:assets';
+import HeroBackgroundAstroComponent from '../components/HeroBackground.astro';
 
 const building = [
   {
@@ -16,7 +17,7 @@ const building = [
 
 const projects = [
   {
-    title: 'Configly',
+    title: 'www.configly.site',
     href: 'https://configly.site',
     external: true,
     description: 'Convert configuraition file instantly.',
@@ -53,7 +54,7 @@ const writing = [
 const columns = [
   { label: 'Work Experience', items: building },
   { label: 'Projects', items: projects },
-  { label: 'Writing', items: writing },
+  { label: 'writing', items: writing },
 ];
 
 const year = new Date().getFullYear();
@@ -62,12 +63,12 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <BaseLayoutAstroComponent
   title="Chhong Bunchhean"
-  description="Crafting interfaces. Webmaster at Linear. Building polished software and web experiences."
+  description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable. "
 >
 <PageLayoutAstroComponent>
-  <main>
+  <main class="h-screen">
     <!-- Intro -->
-    <section class="mb-0">
+    <section class="mb-14">
     <div class="flex flex-col gap-4 mb-8 sm:flex-row sm:justify-between ">
       <!-- profile section -->
       <div class="flex min-w-0 flex-row items-center gap-4">
@@ -78,54 +79,24 @@ const baseUrl = import.meta.env.BASE_URL;
           height={210}
           format='webp'
           loading={'eager'}
-          class="h-[70px] w-[70px] shrink-0 rounded-md"
+          class="h-[60px] w-[60px] shrink-0 rounded-md"
         />
         <div class="mt-[-2px]">
-          <h1 class="text-lg font-normal text-fg">
+          <h1 class="text-lg text-fg">
             Bunchhean Chhoung
           </h1>
-          <p class="text-sm text-fg">
-            Junior Software Developer 
+          <p class="text-xs text-muted font-mono">
+          <span class="text-green-500">@it-bunchhean</span>:<span class="text-blue-700">~</span>$ whoami
           </p>
-          <p class="text-sm text-muted">
-            @it-bunchhean
+          <p class="text-xs text-fg">
+              Junior Software Developer
           </p>
         </div>
       </div>
-      <!-- Links -->
-      <div class="flex flex-wrap gap-x-4 gap-y-1 mt-[2px] text-fg/80 sm:justify-end">
-        <a
-          href="https://github.com/it-chhean"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline decoration-white/35 text-sm underline-offset-[3px]"
-          title="Github"
-        >
-            GitHub
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/chhoung-bunchhean/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline decoration-white/35 text-sm underline-offset-[3px]"
-          title="LinkedIn"
-        >
-          LinkedIn
-        </a>
-      </div>
+        <div class="mt">
+           <NavAstroComponent/> 
+        </div>
     </div>
-      </div>
-      <p class="text-sm font-medium mb-4">About</p>
-      <p class="text-sm leading-relaxed text-muted">
-          I'm a person who enjoys solving real-world problems with technology!
-        I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable. 
-      </p>
-    </section>
-
-    <!-- Columns -->
-    <section class="grid grid-cols-3 gap-8 my-[72px] max-sm:grid-cols-1 max-sm:gap-10 max-sm:my-14">
-      {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
     </section>
 
     <!-- Now -->
@@ -145,36 +116,51 @@ const baseUrl = import.meta.env.BASE_URL;
         opportunity and creativity of which I&rsquo;ve only scratched the
         surface.
       </p>
-
+    </section>
+    <!-- Columns -->
+    <section class="grid grid-cols-3 gap-8 my-[72px] max-sm:grid-cols-1 max-sm:gap-10 max-sm:my-14">
+      {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
     </section>
 
-    <!-- Connect -->
-    <section class="mb-20">
-      <h2 class="mb-4 text-sm font-medium text-fg">Connect</h2>
-      <p class="text-muted text-sm">
-        Reach me at{' '}
-        <a
-          href="https://twitter.com/pacocoursey"
-          target="_blank"
-          title="Github"
-          rel="noopener noreferrer"
-          class="underline decoration-white/35 underline-offset-[3px]"
-        >
-          @it-chhean
-        </a>{' '}
-        or{' '}
-        <a href="mailto:bchhean@gmail.com" title="Email" class="underline decoration-white/35 underline-offset-[3px]">bchhean@gmail.com</a>.
+    <!-- contact -->
+    <section class="mb-16">
+      <h2 class="mb-4 text-sm font-medium text-fg">
+          Contact
+      </h2>
+      <p class="text-sm ">
+      <span class="text-muted">You can reach me at</span>
+        <span class="m-0 tracking-wide ">
+            <a
+              href="mailto:bchhean8@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline  decoration-white/35 "
+              title="Email"
+            >
+            email
+            </a>
+        </span>
+      <span class="text-muted">or</span>
+          <span class="m-0 tracking-wide">
+                <a
+                  href="https://www.linkedin.com/in/chhoung-bunchhean/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline decoration-white/35"
+                  title="LinkedIn"
+                >
+                @in/chhoung-bunchhean 
+                </a>.
+          </span>
       </p>
     </section>
 
     <!-- Footer -->
-    <footer class="flex items-center justify-between border-t-[0.02em] border-muted/30 pt-6 text-muted-2 text-[13px] ">
+    <footer class="flex items-center justify-between border-muted/30 pt-6 text-muted-2 text-[13px] ">
       <span class="inline-flex items-center gap-2">
         © {year} all rights reserved.
       </span>
-      <NavAstroComponent/>
     </footer>
   </main>
 </PageLayoutAstroComponent>
-
 </BaseLayoutAstroComponent>

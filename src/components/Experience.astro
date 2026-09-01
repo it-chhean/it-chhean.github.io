@@ -44,10 +44,10 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
 <section class="mb-8">
   <h2 class="m-0 text-sm font-medium text-fg">{heading}</h2>
 
-  <ol class="mt-4 pl-5">
+  <ol class="mt-4 ">
     {
       items.map((item, index) => (
-        <li class="relative list-disc ">
+        <li class="relative list-none ">
           <div class={index !== items.length - 1 ? "pb-8" : ""}>
             <h3 class="m-0 text-[15px] font-normal text-white">
               {item.role}
