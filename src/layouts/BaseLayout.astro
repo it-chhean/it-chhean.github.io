@@ -15,8 +15,15 @@ const baseUrl = import.meta.env.BASE_URL;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <link rel="icon" type="image" href={`${baseUrl}favicon.ico`} />
+    <link rel="icon" type="image" href={`${baseUrl}icon-white.svg`} />
     <meta name="generator" content={Astro.generator} />
+
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />

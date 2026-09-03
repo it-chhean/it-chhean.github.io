@@ -18,36 +18,36 @@ const DEFAULT_GROUPS: SkillGroup[] = [
   {
     label: "Frontend:",
     skills: [
-      { name: "React", icon: "" },
-      { name: "Next.js", icon: "" },
-      { name: "Vue.js", icon: "" },
-      { name: "TypeScript", icon: "" },
-      { name: "Tailwind CSS", icon: "" },
+      { name: "React,", icon: "" },
+      { name: "Next.js,", icon: "" },
+      { name: "Vue.js,", icon: "" },
+      { name: "TypeScript,", icon: "" },
+      { name: "Tailwind CSS.", icon: "" },
     ],
   },
   {
     label: "Backend:",
     skills: [
-      { name: "Spring Boot", icon: "" },
-      { name: "Express.js", icon: "" },
-      { name: "Node.js", icon: "" },
+      { name: "Spring Boot,", icon: "" },
+      { name: "Express.js,", icon: "" },
+      { name: "Node.js.", icon: "" },
     ],
   },
   {
     label: "Mobile App Developments:",
     skills: [
-      { name: "Dart", icon: "" },
-      { name: "Flutter", icon: "" },
+      { name: "Dart, ", icon: "" },
+      { name: "Flutter.", icon: "" },
     ],
   },
   {
     label: "Database & Tools: ",
     skills: [
-      { name: "PostgreSQL", icon: "" },
-      { name: "MySQL", icon: "" },
-      { name: "Git", icon: "" },
-      { name: "Docker", icon: "" },
-      { name: "Vim", icon: ""}
+      { name: "PostgreSQL, ", icon: "" },
+      { name: "MySQL, ", icon: "" },
+      { name: "Git, ", icon: "" },
+      { name: "Docker, ", icon: "" },
+      { name: "Vim.", icon: ""}
     ],
   },
 ];
@@ -61,13 +61,13 @@ const { heading = "Technical Skills", groups = DEFAULT_GROUPS } = Astro.props as
     {
       groups.map((group) => (
         <div>
-          <h3 class="m-0 mb-2 text-sm text-fg/70">
+          <ul class="m-0 flex flex-wrap gap-2 list-none p-0">
+          <h3 class="text-sm text-fg/70">
             {group.label}
           </h3>
-          <ul class="m-0 flex flex-wrap gap-2 list-none p-0">
             {group.skills.map((skill) => (
               <li>
-                <span class="inline-flex items-center rounded-md gap-1.5  border border-fg/10 bg-fg/5 px-2 py-1.5 text-xs text-fg/80">
+                <span class="text">
                     {skill.icon && <i class={`${skill.icon} colored text-base`} aria-hidden="true"></i>
                     }
                   {skill.name}

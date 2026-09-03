@@ -1,10 +1,8 @@
 ---
 import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
 import PageLayoutAstroComponent from '../components/PageLayout.astro';
-import NavAstroComponent from '../components/Nav.astro';
 import EducatioinAstroComponent from '../components/Educatioin.astro';
 import SkillsAstroComponent from '../components/Skills.astro';
-import ExperienceComponnet from '../components/Experience.astro';
 import AchievementAstroComponent from '../components/Achievement.astro';
 
 const year = new Date().getFullYear();
@@ -17,23 +15,23 @@ const baseUrl = import.meta.env.BASE_URL;
 >
   <PageLayoutAstroComponent>
     <!-- Main content -->
-    <p crass="m-0 text-sm tracking-wide text-neutral-400">
+    <p class="m-0 text-[12px] text-muted tracking-wide mb-12 ">
       <a
         href={baseUrl}
-        class="text-neutral-400 underline transition-colors hover:text-neutral-700"
+        class="text-muted underline transition-colors hover:text-neutral-700"
       >Back</a>
     </p>
     <!-- Header -->
-    <h1 class="mt-3 mb-0 text-[32px] font-normal [font-family:'EB_Garamond_Variable',Georgia,serif] sm:text-[40px]">Professional Journey.</h1>
-    <p class="mt-2 text-sm text-neutral-400">My education, work experience, technical skills, certifications, and notable achievements. </p>
+    <h1 class="mt-3 mb-0 font-medium text-sm">Professional Journey.</h1>
+    <p class="mt-2 text-sm text-muted">My education, work experience, technical skills, certifications, and notable achievements. </p>
 
     <!-- body -->
     <div class="mt-12 mb-8 flex flex-col gap-8 text-sm leading-relaxed">
-      <section class="mb-8">
+      <section class="mt-2 mb-8">
         <h2 class="m-0 text-sm font-medium text-fg">Work Experiences</h2>
         <p class="mt-4 text-muted">Recently seeking jobs opportunities.</p>
       </section>
-       <!--<ExperienceComponnet/> -->
+       <!-- <ExperienceComponnet/> -->
        <EducatioinAstroComponent/> 
        <SkillsAstroComponent/> 
       <AchievementAstroComponent/>

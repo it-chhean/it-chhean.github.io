@@ -1,5 +1,5 @@
 ---
-import { ChevronDown, ChevronRight } from '@lucide/astro';
+import { ChevronRight } from '@lucide/astro';
 
 export interface WorkExperienceItem {
   role: string;
@@ -49,32 +49,37 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
       items.map((item, index) => (
         <li class="relative list-none ">
           <div class={index !== items.length - 1 ? "pb-8" : ""}>
-            <h3 class="m-0 text-[15px] font-normal text-white">
-              {item.role}
-              {item.team ? ` - ${item.team}` : ""}
-            </h3>
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <h3 class="m-0 text-[15px] font-normal text-white">
+                  {item.role}
+                  {item.team ? ` - ${item.team}` : ""}
+                </h3>
 
-            <p class="mt-1 text-[14px]">
-              {item.companyHref ? (
-                <a
-                  href={item.companyHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-white underline decoration-white/35 underline-offset-[3px] transition-[text-decoration-color] duration-150 hover:decoration-current"
-                >
-                  {item.company}
-                </a>
-              ) : (
-                <span class="text-white">{item.company}</span>
-              )}
-              {item.location ? (
-                <span class="text-muted"> • {item.location}</span>
-              ) : null}
-            </p>
-
-            <p class="mt-1 text-[13px] text-muted">
-              {item.startDate} - {item.endDate}
-            </p>
+                <p class="mt-1 text-[14px]">
+                  {item.companyHref ? (
+                    <a
+                      href={item.companyHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-white underline decoration-white/35 underline-offset-[3px] transition-[text-decoration-color] duration-150 hover:decoration-current"
+                    >
+                      {item.company}
+                    </a>
+                  ) : (
+                    <span class="text-white">{item.company}</span>
+                  )}
+                  {item.location ? (
+                    <span class="text-muted"> • {item.location}</span>
+                  ) : null}
+                </p>
+              </div>
+              <div>
+                <p class="mt-[-23px] text-[11px] text-muted">
+                  {item.startDate} - {item.endDate}
+                </p>
+              </div>
+            </div>
 
             <p class="mt-2 text-[14px] leading-[1.5] text-muted">
               {item.summary}

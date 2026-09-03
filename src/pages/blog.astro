@@ -1,27 +1,25 @@
 ---
 import BaseLayoutAstroComponent from "../layouts/BaseLayout.astro"
 import PageLayoutAstroComponent from "../components/PageLayout.astro";
-import NavAstroComponent from "../components/Nav.astro";
-import CardAstroComponent from "../components/ui/Card.astro";
 
 const year = new Date().getFullYear();
 const baseUrl = import.meta.env.BASE_URL;
 ---
 <BaseLayoutAstroComponent
-  title="Projecst"
+  title="Blogs"
   description="Education and professional background for Bunchhean Chhoung"
 >
   <PageLayoutAstroComponent>
     <!-- Main content -->
-    <p crass="m-0 text-sm tracking-wide text-neutral-400">
+    <p class="m-0 text-[12px] text-muted mb-12 tracking-wide ">
       <a
         href={baseUrl}
         class="text-neutral-400 underline transition-colors hover:text-neutral-700"
       >Back</a>
     </p>
     <!-- Header -->
-    <h1 class="mt-3 mb-0 text-[32px] font-normal [font-family:'EB_Garamond_Variable',Georgia,serif] sm:text-[40px]">Blogs.</h1>
-    <p class="mt-2 text-sm text-neutral-400">Up comming . . .</p>
+    <h1 class="mt-3 mb-0 text-sm font-medium ">Blogs.</h1>
+    <p class="mt-2 text-xs text-muted">Up comming . . .</p>
 
     <!-- body -->
     <div class="mt-8 mb-8 flex flex-col gap-8 text-sm leading-relaxed">

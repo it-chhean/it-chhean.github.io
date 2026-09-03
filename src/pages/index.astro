@@ -1,10 +1,9 @@
 ---
 import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
 import LinkColumn from '../components/ui/LinkColumn.astro';
-import NavAstroComponent from '../components/Nav.astro';
 import PageLayoutAstroComponent from '../components/PageLayout.astro';
 import { Image } from 'astro:assets';
-import HeroBackgroundAstroComponent from '../components/HeroBackground.astro';
+import NavAstroComponent from '../components/Nav.astro';
 
 const building = [
   {
@@ -21,34 +20,16 @@ const projects = [
     href: 'https://configly.site',
     external: true,
     description: 'Convert configuraition file instantly.',
-  },
-  {
-    title: 'Mhob',
-    href: 'https://mhob.vercel.app',
-    external: true,
-    description: 'Khmer foods tranditional recipe',
-  },
+  }
 ];
 
 const writing = [
-  {
-    title: 'React Hook Getter Pattern',
-    href: '/writing/hook-getter',
-    external: false,
-    description: 'Simple, efficient React state hook in 50 lines.',
-  },
-  {
-    title: 'Redesign 2021',
-    href: '/writing/redesign-2021',
-    external: false,
-    description: 'Return to simplicity.',
-  },
   {
     title: 'All writing',
     href: '/writing',
     external: false,
     description: 'Infrequent thoughts on design and code.',
-  },
+  }
 ];
 
 const columns = [
@@ -62,59 +43,63 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayoutAstroComponent
-  title="Chhong Bunchhean"
+  title="Chhean | Developer"
   description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable. "
 >
 <PageLayoutAstroComponent>
   <main class="h-screen">
     <!-- Intro -->
     <section class="mb-14">
-    <div class="flex flex-col gap-4 mb-8 sm:flex-row sm:justify-between ">
+    <div class=" mb-8 sm:flex-row sm:justify-between ">
       <!-- profile section -->
-      <div class="flex min-w-0 flex-row items-center gap-4">
-        <Image
-          src={`${baseUrl}profile.png`}
-          alt=""
-          width={210}
-          height={210}
-          format='webp'
-          loading={'eager'}
-          class="h-[60px] w-[60px] shrink-0 rounded-md"
-        />
-        <div class="mt-[-2px]">
-          <h1 class="text-lg text-fg">
-            Bunchhean Chhoung
-          </h1>
-          <p class="text-xs text-muted font-mono">
-          <span class="text-green-500">@it-bunchhean</span>:<span class="text-blue-700">~</span>$ whoami
-          </p>
-          <p class="text-xs text-fg">
-              Junior Software Developer
-          </p>
-        </div>
+      <div class="">
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch theme"
+          class="block cursor-pointer appearance-none rounded-full border-0 bg-transparent p-0"
+        >
+          <Image
+            src={`${baseUrl}icon-dark.svg`}
+            alt="Profile picture"
+            id="dynamic-image"
+            data-img1={`${baseUrl}icon-dark.svg`}
+            data-img2={`${baseUrl}icon-white.svg`}
+            width={230}
+            height={230}
+            format='webp'
+            loading={'eager'}
+            class="h-[60px] w-[60px] shrink-0 object-cover "
+          />
+        </button>
       </div>
-        <div class="mt">
-           <NavAstroComponent/> 
-        </div>
+      <div class="mt-8 ">
+        <NavAstroComponent />
+      </div>
     </div>
     </section>
 
     <!-- Now -->
     <section class="mb-16">
       <h2 class="mb-4 text-sm font-medium text-fg">
-        Now
+        Hey, I'm Chhean.
       </h2>
 
       <p class="text-muted text-sm mb-[18px]">
-        Developing skill through doing, exploring passion and
+        I'm a <span class="text-fg">“ software developer ”</span>  that's developing skill through doing, exploring passion and
         interests, imbuing quality. Mindful that
         <em>everything around me is someone&rsquo;s life work.</em>
       </p>
 
-      <p class="text-muted text-sm mb-[18px]">
-      All I want to do is build websites & mobile applications. Optimization, performance&mdash;the web/mobile is an endless medium of
+      <p class="text-muted  text-sm mb-[18px]">
+      All I want to do is build a useful software. Optimization, performance&mdash;the web/mobile is an endless medium of
         opportunity and creativity of which I&rsquo;ve only scratched the
         surface.
+      </p>
+
+      <p class="text-muted text-sm mb-[18px]">
+      I'm obsessed with living in the <span class="text-fg">terminal</span>, because I'm a fan of <span class="text-fg">linux</span>.
       </p>
     </section>
     <!-- Columns -->
@@ -127,7 +112,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <h2 class="mb-4 text-sm font-medium text-fg">
           Contact
       </h2>
-      <p class="text-sm ">
+      <p class="text-xs">
       <span class="text-muted">You can reach me at</span>
         <span class="m-0 tracking-wide ">
             <a
@@ -164,3 +149,37 @@ const baseUrl = import.meta.env.BASE_URL;
   </main>
 </PageLayoutAstroComponent>
 </BaseLayoutAstroComponent>
+
+<script>
+  const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  const img = document.getElementById('dynamic-image') as HTMLImageElement | null;
+
+  if (themeToggle && img) {
+    const img1Src = img.dataset.img1 ?? '';
+    const img2Src = img.dataset.img2 ?? '';
+    const root = document.documentElement;
+    const getTheme = () => root.dataset.theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    const updateImage = () => {
+      img.src = getTheme() === 'dark' ? img2Src : img1Src;
+    };
+
+    const updateThemeToggle = () => {
+      const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+      themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+      themeToggle.setAttribute('title', `Switch to ${nextTheme} mode`);
+    };
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = nextTheme;
+      localStorage.setItem('theme', nextTheme);
+      updateThemeToggle();
+      updateImage();
+    });
+
+    updateThemeToggle();
+    updateImage();
+  }
+
+</script>

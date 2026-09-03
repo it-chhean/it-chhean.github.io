@@ -10,14 +10,52 @@
 }
 
 @theme {
-  /* --color-bg: #ffffff; */
-  --color-bg: #000000;
-  --color-fg: #F5F5F5;
-  --color-muted: #AAAAAA;
-  --color-muted-2: #767676;
-  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype",
-    "Times New Roman", serif;
+  /* Keep Tailwind utilities tied to the active theme instead of fixed values. */
+  --color-bg: var(--app-background);
+  --color-fg: var(--app-foreground);
+  --color-muted: var(--app-muted);
+  --color-muted-2: var(--app-muted-subtle);
+  --font-sans:
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif:
+    Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+}
+
+:root {
+  color-scheme: light;
+  --app-background: #fafafa;
+  --app-foreground: #18181b;
+  --app-muted: #5f5f67;
+  --app-muted-subtle: #85858d;
+
+  /* A few components use Tailwind's white utility as their primary ink. */
+  --color-white: var(--app-foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --app-background: #09090b;
+    --app-foreground: #f5f5f5;
+    --app-muted: #a1a1aa;
+    --app-muted-subtle: #8b8b94;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --app-background: #fafafa;
+  --app-foreground: #18181b;
+  --app-muted: #57575c;
+  --app-muted-subtle: #85858d;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-background: #09090b;
+  --app-foreground: #f5f5f5;
+  --app-muted: #a1a1aa;
+  --app-muted-subtle: #8b8b94;
 }
 
 *,
@@ -28,12 +66,12 @@
 
 html {
   background: var(--color-bg);
-  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
@@ -44,18 +82,20 @@ body {
 }
 
 ::selection {
-  background-color: #f0f0f0;
-  color: #0d0d0d;
+  background-color: var(--color-fg);
+  color: var(--color-bg);
 }
 
 a {
   color: inherit;
   text-underline-offset: 3px;
-  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  transition:
+    text-decoration-color 0.15s ease,
+    color 0.15s ease;
 }
 
 a:hover {
-  color: white;
+  color: var(--color-fg);
   text-decoration-color: currentColor;
 }
 
@@ -72,7 +112,8 @@ em {
 }
 
 .text-sm {
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .text-base {
@@ -100,15 +141,51 @@ em {
     animation: fadeIn 0.6s ease forwards;
   }
 
-  .fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
-  .fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
-  .fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
-  .fade-in-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
-  .fade-in-delay-5 { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeIn; animation-duration: 0.6s; }
+  .fade-in-delay-1 {
+    animation-delay: 0.1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+  }
+  .fade-in-delay-2 {
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+  }
+  .fade-in-delay-3 {
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+  }
+  .fade-in-delay-4 {
+    animation-delay: 0.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+  }
+  .fade-in-delay-5 {
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+  }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -122,4 +199,20 @@ em {
 
 .responsibilities[open] .chevron {
   transform: rotate(90deg);
+}
+
+.grid-background {
+  z-index: 0;
+}
+
+.wave-canvas {
+  z-index: 1;
+}
+
+.background-text {
+  z-index: 2;
+}
+
+.navigation {
+  z-index: 10;
 }
