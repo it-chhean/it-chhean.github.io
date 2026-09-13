@@ -7,10 +7,10 @@ import NavAstroComponent from '../components/Nav.astro';
 
 const building = [
   {
-    title: 'Professor Assistant',
+    title: 'Unemployee',
     href: '/',
     external: false,
-    description: 'Implementing projects and Networking.',
+    description: 'Seeking for job portonity.',
   },
 ];
 
@@ -43,143 +43,161 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayoutAstroComponent
-  title="Chhean | Developer"
-  description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable. "
+  title="Developer | Chhean"
+  description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable."
 >
-<PageLayoutAstroComponent>
-  <main class="h-screen">
-    <!-- Intro -->
-    <section class="mb-14">
-    <div class=" mb-8 sm:flex-row sm:justify-between ">
-      <!-- profile section -->
-      <div class="">
-        <button
-          id="theme-toggle"
-          type="button"
-          aria-label="Switch to dark mode"
-          title="Switch theme"
-          class="block cursor-pointer appearance-none rounded-full border-0 bg-transparent p-0"
-        >
-          <Image
-            src={`${baseUrl}icon-dark.svg`}
-            alt="Profile picture"
-            id="dynamic-image"
-            data-img1={`${baseUrl}icon-dark.svg`}
-            data-img2={`${baseUrl}icon-white.svg`}
-            width={230}
-            height={230}
-            format='webp'
-            loading={'eager'}
-            class="h-[60px] w-[60px] shrink-0 object-cover "
-          />
-        </button>
-      </div>
-      <div class="mt-8 ">
-        <NavAstroComponent />
-      </div>
-    </div>
-    </section>
+  <PageLayoutAstroComponent>
+    <main class="h-screen">
+      <!-- Intro -->
+      <section class="mb-14">
+        <div class="mb-8 sm:flex-row sm:justify-between">
+          <!-- profile section -->
+          <div>
+            <button
+              id="theme-toggle"
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Switch theme"
+              class="block cursor-pointer appearance-none rounded-full border-0 bg-transparent p-0"
+            >
+              <span class="relative block h-[60px] w-[60px]">
+                <Image
+                  src={`${baseUrl}icon-dark.svg`}
+                  alt="Profile picture"
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-light absolute inset-0 h-[60px] w-[60px] object-cover"
+                />
+                <Image
+                  src={`${baseUrl}icon-white.svg`}
+                  alt=""
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-dark absolute inset-0 h-[60px] w-[60px] object-cover"
+                />
+              </span>
+            </button>
+          </div>
+          <div class="mt-8">
+            <NavAstroComponent />
+          </div>
+        </div>
+      </section>
 
-    <!-- Now -->
-    <section class="mb-16">
-      <h2 class="mb-4 text-sm font-medium text-fg">
-        Hey, I'm Chhean.
-      </h2>
+      <!-- Now -->
+      <section class="mb-16">
+        <section class="mb-4">
+          <h2 class="text-sm font-normal text-fg">
+            Hey, I'm Chhean !
+          </h2>
+        </section>
 
-      <p class="text-muted text-sm mb-[18px]">
-        I'm a <span class="text-fg">“ software developer ”</span>  that's developing skill through doing, exploring passion and
-        interests, imbuing quality. Mindful that
-        <em>everything around me is someone&rsquo;s life work.</em>
-      </p>
+        <p class="text-muted text-sm mb-[18px]">
+          I'm a <span class="text-fg">" Full-Stack Developer  "</span> that's developing skill through doing, exploring passion and
+          interests, imbuing quality. Mindful that
+          <em>everything around me is someone&rsquo;s life work.</em>
+        </p>
 
-      <p class="text-muted  text-sm mb-[18px]">
-      All I want to do is build a useful software. Optimization, performance&mdash;the web/mobile is an endless medium of
-        opportunity and creativity of which I&rsquo;ve only scratched the
-        surface.
-      </p>
+        <p class="text-muted text-sm mb-[18px]">
+          All I want to do is build a useful software. Optimization, performance&mdash;the web/mobile is an endless medium of
+          opportunity and creativity of which I&rsquo;ve only scratched the
+          surface.
+        </p>
+      </section>
 
-      <p class="text-muted text-sm mb-[18px]">
-      I'm obsessed with living in the <span class="text-fg">terminal</span>, because I'm a fan of <span class="text-fg">linux</span>.
-      </p>
-    </section>
-    <!-- Columns -->
-    <section class="grid grid-cols-3 gap-8 my-[72px] max-sm:grid-cols-1 max-sm:gap-10 max-sm:my-14">
-      {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
-    </section>
+      <!-- Columns -->
+      <section class="grid grid-cols-3 gap-8 my-[72px] max-sm:grid-cols-1 max-sm:gap-10 max-sm:my-14">
+        {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
+      </section>
 
-    <!-- contact -->
-    <section class="mb-16">
-      <h2 class="mb-4 text-sm font-medium text-fg">
-          Contact
-      </h2>
-      <p class="text-xs">
-      <span class="text-muted">You can reach me at</span>
-        <span class="m-0 tracking-wide ">
+      <!-- contact -->
+      <section class="mb-16">
+        <h2 class="mb-4 text-sm font-medium text-fg">
+          Get in touch
+        </h2>
+
+        <p class="text-muted text-sm">
+          Open to any opportunities: freelance, part-time, contract, or full-time.
+        </p>
+        <p class="text-sm">
+          <span class="text-muted">You can reach me at</span>
+          <span class="m-0 tracking-wide">
+            <a
+              href="https://www.github.com/it-chhean"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-white/35"
+              title="GitHub"
+            >
+              github
+            </a>,
+          </span>
+          <span class="m-0 tracking-wide">
             <a
               href="mailto:bchhean8@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="underline  decoration-white/35 "
+              class="underline decoration-white/35"
               title="Email"
             >
-            email
+              email
             </a>
-        </span>
-      <span class="text-muted">or</span>
-          <span class="m-0 tracking-wide">
-                <a
-                  href="https://www.linkedin.com/in/chhoung-bunchhean/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="underline decoration-white/35"
-                  title="LinkedIn"
-                >
-                @in/chhoung-bunchhean 
-                </a>.
           </span>
-      </p>
-    </section>
+          <span class="text-muted">and</span>
+          <span class="m-0 tracking-wide">
+            <a
+              href="https://www.linkedin.com/in/chhoung-bunchhean/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-white/35"
+              title="LinkedIn"
+            >
+            linkedin
+            </a>.
+          </span>
+        </p>
+
+      </section>
 
     <!-- Footer -->
-    <footer class="flex items-center justify-between border-muted/30 pt-6 text-muted-2 text-[13px] ">
-      <span class="inline-flex items-center gap-2">
+    <footer class="flex items-center justify-between text-primary text-xs">
+      <span class="inline-flex mb-18 items-center gap-2">
         © {year} Chhean. All rights reserved.
       </span>
     </footer>
   </main>
-</PageLayoutAstroComponent>
+  </PageLayoutAstroComponent>
 </BaseLayoutAstroComponent>
 
 <script>
-  const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
-  const img = document.getElementById('dynamic-image') as HTMLImageElement | null;
+  const initializeThemeToggle = () => {
+    const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
 
-  if (themeToggle && img) {
-    const img1Src = img.dataset.img1 ?? '';
-    const img2Src = img.dataset.img2 ?? '';
-    const root = document.documentElement;
-    const getTheme = () => root.dataset.theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (themeToggle) {
+      const root = document.documentElement;
+      const getTheme = () => root.dataset.theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-    const updateImage = () => {
-      img.src = getTheme() === 'dark' ? img2Src : img1Src;
-    };
+      const updateThemeToggle = () => {
+        const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+        themeToggle.setAttribute('title', `Switch to ${nextTheme} mode`);
+      };
 
-    const updateThemeToggle = () => {
-      const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
-      themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
-      themeToggle.setAttribute('title', `Switch to ${nextTheme} mode`);
-    };
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = nextTheme;
+        localStorage.setItem('theme', nextTheme);
+        updateThemeToggle();
+      });
 
-    themeToggle.addEventListener('click', () => {
-      const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
-      root.dataset.theme = nextTheme;
-      localStorage.setItem('theme', nextTheme);
       updateThemeToggle();
-      updateImage();
-    });
+    }
+  };
 
-    updateThemeToggle();
-    updateImage();
-  }
-
+  document.addEventListener('astro:page-load', initializeThemeToggle);
+  initializeThemeToggle();
 </script>

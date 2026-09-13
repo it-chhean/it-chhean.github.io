@@ -58,6 +58,32 @@
   --app-muted-subtle: #8b8b94;
 }
 
+.theme-image-light {
+  display: block;
+}
+
+.theme-image-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-image-light {
+    display: none;
+  }
+
+  :root:not([data-theme]) .theme-image-dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .theme-image-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-image-dark {
+  display: block;
+}
+
 *,
 *::before,
 *::after {
@@ -112,7 +138,7 @@ em {
 }
 
 .text-sm {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -121,7 +147,7 @@ em {
 }
 
 .text-xs {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .text-lg {

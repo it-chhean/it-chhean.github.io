@@ -14,9 +14,9 @@ interface Props {
 
 const DEFAULT_ITEMS: EducationItem[] = [
   {
-    school: "Bachelor's Degree, Computer Science.",
+    school: "Royal University of Phnom Penh",
     href: "https://www.rupp.edu.kh/",
-    degree: "Royal University of Phnom Penh (RUPP)",
+    degree: "Bachelor's Degree, Computer Science.",
     period: "Jan 2024 - Present",
   }
 ];
@@ -42,7 +42,7 @@ const { items = DEFAULT_ITEMS, heading = "Education" } = Astro.props;
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1 text-[15px] font-medium text-white underline decoration-white/35 underline-offset-[3px] transition-[text-decoration-color] duration-150 hover:decoration-current"
+                class="inline-flex items-center gap-1 text-sm font-medium text-fg underline decoration-white/35 underline-offset-[3px] transition-[text-decoration-color] duration-150 hover:decoration-current"
               >
                 {item.school}
                 <svg
@@ -59,12 +59,12 @@ const { items = DEFAULT_ITEMS, heading = "Education" } = Astro.props;
                   />
                 </svg>
               </a>
-              <p class="mt-1.5 text-[14px] leading-[1.5] text-muted">
+              <p class="mt-1.5 text-xs leading-[1.5] text-muted">
                 {item.degree}
               </p>
             </div>
 
-            <div class="text-[11px] text-muted">{item.period}</div>
+            <div class="text-[12px] text-muted">{item.period}</div>
           </div>
         </li>
       ))

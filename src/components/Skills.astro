@@ -52,7 +52,7 @@ const DEFAULT_GROUPS: SkillGroup[] = [
   },
 ];
 
-const { heading = "Technical Skills", groups = DEFAULT_GROUPS } = Astro.props as Props;
+const { heading = "Tech Stack", groups = DEFAULT_GROUPS } = Astro.props as Props;
 ---
 
 <section class="mb-8">
@@ -62,7 +62,7 @@ const { heading = "Technical Skills", groups = DEFAULT_GROUPS } = Astro.props as
       groups.map((group) => (
         <div>
           <ul class="m-0 flex flex-wrap gap-2 list-none p-0">
-          <h3 class="text-sm text-fg/70">
+          <h3 class="text-sm text-muted">
             {group.label}
           </h3>
             {group.skills.map((skill) => (

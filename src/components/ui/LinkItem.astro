@@ -20,7 +20,7 @@ const resolvedHref = external
     href={resolvedHref}
     target={external ? '_blank' : undefined}
     rel={external ? 'noopener noreferrer' : undefined}
-    class="text-[15px] font-medium text-fg underline decoration-white/35 underline-offset-[3px] inline-flex items-center gap-1 transition-[text-decoration-color] duration-150 hover:decoration-current"
+    class="text-sm font-medium text-fg underline decoration-white/35 underline-offset-[3px] inline-flex items-center gap-1 transition-[text-decoration-color] duration-150 hover:decoration-current"
   >
     {title}
     {external && <span class="text-[12px] text-fg/70" aria-hidden="true">
@@ -29,5 +29,5 @@ const resolvedHref = external
     </svg>
     </span>}
   </a>
-  <p class="mt-1.5 text-muted text-[14px] leading-[1.5]">{description}</p>
+  <p class="mt-1.5 text-muted text-xs leading-[1.5]">{description}</p>
 </li>

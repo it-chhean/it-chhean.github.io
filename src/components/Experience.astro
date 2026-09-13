@@ -51,12 +51,12 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
           <div class={index !== items.length - 1 ? "pb-8" : ""}>
             <div class="flex items-center justify-between gap-4">
               <div>
-                <h3 class="m-0 text-[15px] font-normal text-white">
+                <h3 class="m-0 text-sm font-normal text-white">
                   {item.role}
                   {item.team ? ` - ${item.team}` : ""}
                 </h3>
 
-                <p class="mt-1 text-[14px]">
+                <p class="mt-1 text-xs">
                   {item.companyHref ? (
                     <a
                       href={item.companyHref}
@@ -75,7 +75,7 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
                 </p>
               </div>
               <div>
-                <p class="mt-[-23px] text-[11px] text-muted">
+                <p class="mt-[-23px] text-[12px] text-muted">
                   {item.startDate} - {item.endDate}
                 </p>
               </div>
