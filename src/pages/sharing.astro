@@ -4,39 +4,6 @@ import PageLayoutAstroComponent from '../components/PageLayout.astro';
 import { Image } from 'astro:assets';
 import NavAstroComponent from '../components/Nav.astro';
 
-const building = [
-  {
-    title: 'Unemployee',
-    href: '/',
-    external: false,
-    description: 'Seeking for job portonity.',
-  },
-];
-
-const projects = [
-  {
-    title: 'www.configly.site',
-    href: 'https://configly.site',
-    external: true,
-    description: 'Convert configuraition file instantly.',
-  }
-];
-
-const writing = [
-  {
-    title: 'All writing',
-    href: '/writing',
-    external: false,
-    description: 'Infrequent thoughts on design and code.',
-  }
-];
-
-const columns = [
-  { label: 'Work Experience', items: building },
-  { label: 'Projects', items: projects },
-  { label: 'writing', items: writing },
-];
-
 const year = new Date().getFullYear();
 const baseUrl = import.meta.env.BASE_URL;
 ---
@@ -89,7 +56,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
     <!-- Header -->
      <section>
-      <h1 class="mt-2 text-sm font-medium ">Writing Document Research Paper</h1>
+      <h1 class="text-sm font-medium ">Writing Document Research Paper</h1>
       <p class="mt-4 text-xs text-muted">Up comming . . .</p>
      </section>
 
