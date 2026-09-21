@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description:
       "Fast, reliable configuration file conversion. No uploads, no servers, your data is processed locally in your browser.",
     tags: ["Next.js", "Typescript", "Bun"],
-    logo: "/image/cf..png",
+    logo: "/image/project-showcase.png",
     logoAlt: "",
     year: "Ongoing",
   }
@@ -34,11 +34,12 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
 });
 ---
 
-<section class="py-6 sm:py-8 md:py-10">
+<section>
   <div class="">
     {orderedYears.map((year) => (
-      <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-[72px_1fr] sm:gap-x-4 md:grid-cols-[96px_1fr] md:gap-x-6 lg:gap-x-8">
-        <p class="text-xs sm:text-sm text-muted font-normal">{year}</p>
+      // <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-[72px_1fr] sm:gap-x-4 md:grid-cols-[96px_1fr] md:gap-x-6 lg:gap-x-8">
+      <div>
+        <p class="text-xs sm:text-sm text-muted mb-4 font-normal">{year}</p>
         <div class="space-y-6 sm:space-y-8 md:space-y-10">
           {groups[year].map((project) => (
             <article class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5">
@@ -47,7 +48,7 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
                 <img
                   src={project.logo}
                   alt={project.logoAlt ?? `${project.title} logo`}
-                  class="h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 rounded-md object-cover"
+                  class="h-auto w-full shrink-0 rounded-md object-cover"
                   loading="lazy"
                 />
               )}
@@ -55,7 +56,7 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 font-medium text-white hover:underline underline-offset-2 text-sm sm:text-base"
+                  class="inline-flex underline decoration-white/35 items-center gap-1 mt-2 font-medium text-white underline-offset-2 text-sm sm:text-base"
                 >
                   {project.title}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
@@ -63,7 +64,7 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
                   </svg>
                 </a>
 
-                <p class="max-w-md text-xs sm:text-sm text-muted leading-relaxed">
+                <p class="max-w-xl text-sm sm:text-sm text-muted leading-relaxed">
                   {project.description}
                 </p>
 

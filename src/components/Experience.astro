@@ -49,14 +49,14 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
       items.map((item, index) => (
         <li class="relative list-none ">
           <div class={index !== items.length - 1 ? "pb-8" : ""}>
-            <div class="flex items-center justify-between gap-4">
-              <div>
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <div class="min-w-0">
                 <h3 class="m-0 text-sm font-normal text-white">
                   {item.role}
                   {item.team ? ` - ${item.team}` : ""}
                 </h3>
 
-                <p class="mt-1 text-xs">
+                <p class="mt-1 text-xs leading-relaxed">
                   {item.companyHref ? (
                     <a
                       href={item.companyHref}
@@ -74,8 +74,8 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
                   ) : null}
                 </p>
               </div>
-              <div>
-                <p class="mt-[-23px] text-[12px] text-muted">
+              <div class="sm:mt-[-23px]">
+                <p class="text-[12px] text-muted whitespace-nowrap">
                   {item.startDate} - {item.endDate}
                 </p>
               </div>
@@ -86,20 +86,24 @@ const { items = DEFAULT_ITEMS, heading = "Work Experience" } = Astro.props;
             </p>
 
             {item.responsibilities.length > 0 && (
-              <details class="responsibilities mt-2">
-                <summary class="flex w-fit cursor-pointer list-none items-center gap-1 border-b border-dashed border-white/35 text-[13px] text-muted select-none">
+              <details class="responsibilities group mt-2 overflow-hidden rounded-md">
+                <summary class="flex w-fit cursor-pointer list-none items-center gap-1 border-b border-dashed border-white/35 text-[13px] text-muted select-none transition-colors duration-200 hover:text-fg">
                   <ChevronRight
                     size={16}
-                    class="chevron shrink-0 transition-transform duration-200"
+                    class="chevron shrink-0 transition-transform duration-300 ease-out group-open:rotate-0"
                   />
                   View responsibilities
                 </summary>
 
-                <ul class="mt-2 list-disc space-y-1.5 pl-5 ">
-                  {item.responsibilities.map((r) => (
-                    <li class="text-[14px] leading-[1.5] text-muted">{r}</li>
-                  ))}
-                </ul>
+                <div class="grid transition-[grid-template-rows,opacity] duration-300 ease-out grid-rows-[0fr] group-open:grid-rows-[1fr]">
+                  <div class="overflow-hidden">
+                    <ul class="mt-2 list-disc space-y-1.5 pl-5">
+                      {item.responsibilities.map((r) => (
+                        <li class="text-[14px] leading-[1.5] text-muted">{r}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </details>
             )}
 

@@ -6,52 +6,19 @@ import { Image } from 'astro:assets';
 import NavAstroComponent from '../components/Nav.astro';
 import CardAstroComponent, { Card } from '../components/ui/Card.astro';
 
-const building = [
-  {
-    title: 'Unemployee',
-    href: '/',
-    external: false,
-    description: 'Seeking for job portonity.',
-  },
-];
-
-const projects = [
-  {
-    title: 'www.configly.site',
-    href: 'https://configly.site',
-    external: true,
-    description: 'Convert configuraition file instantly.',
-  }
-];
-
-const writing = [
-  {
-    title: 'All writing',
-    href: '/writing',
-    external: false,
-    description: 'Infrequent thoughts on design and code.',
-  }
-];
-
-const columns = [
-  { label: 'Work Experience', items: building },
-  { label: 'Projects', items: projects },
-  { label: 'writing', items: writing },
-];
-
 const year = new Date().getFullYear();
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayoutAstroComponent
-  title="Developer | Chhean"
+  title="Projects | Chhean"
   description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable."
 >
   <PageLayoutAstroComponent>
     <main class="flex min-h-screen flex-col gap-14 sm:gap-16">
       <!-- Intro -->
       <section>
-        <div class="flex flex-col gap-0 sm:gap-8 sm:flex-row sm:items-center justify-between sm:justify-between">
+        <div class="flex flex-row gap-8 sm:flex-row sm:items-center justify-between sm:justify-between">
           <!-- profile section -->
           <div>
             <button
@@ -91,72 +58,17 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <!-- Now -->
       <section class="space-y-4">
-        <h1 class="text-sm font-normal text-fg">
-          Hey, I'm Chhean !
-        </h1>
+        <h2 class="text-sm font-normal text-fg">
+            Projects
+        </h2>
 
         <p class="max-w-xl text-muted text-sm leading-7">
-          I'm a <span class="text-fg">" Full-Stack Developer  "</span> that's developing skill through doing, exploring passion and
-          interests, imbuing quality. Mindful that
-          <em>everything around me is someone&rsquo;s life work.</em>
-        </p>
-
-        <p class="text-muted text-sm leading-7">
-          All I want to do is build a useful software. Optimization, performance&mdash;the web/mobile is an endless medium of
-          opportunity and creativity of which I&rsquo;ve only scratched the
-          surface.
+        Base on projects, tools <em>and things I&rsquo;ve built.</em>
         </p>
       </section>
 
-      <!-- Columns -->
-      <section class="grid grid-cols-3 gap-8 max-sm:grid-cols-1 max-sm:gap-10 ">
-        {columns.map((col) => <LinkColumn label={col.label} items={col.items} />)}
-      </section> 
-
-      <!-- contact -->
-      <section class="space-y-5">
-        <h2 class="text-sm font-medium text-fg">
-          Get in touch
-        </h2>
-        <p class="text-sm leading-7">
-          <span class="text-muted">Open to any opportunities: freelance, part-time, contract, or full-time.</span>
-          <span class="text-muted"> You can reach me at</span>
-          <span class="m-0 tracking-wide">
-            <a
-              href="https://www.github.com/it-chhean"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline decoration-white/35"
-              title="GitHub"
-            >
-              github
-            </a>,
-          </span>
-          <span class="m-0 tracking-wide">
-            <a
-              href="mailto:bchhean8@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline decoration-white/35"
-              title="Email"
-            >
-              email
-            </a>
-          </span>
-          <span class="text-muted">and</span>
-          <span class="m-0 tracking-wide">
-            <a
-              href="https://www.linkedin.com/in/chhoung-bunchhean/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline decoration-white/35"
-              title="LinkedIn"
-            >
-            linkedin
-            </a>.
-          </span>
-        </p>
-      </section>
+      <!-- Card projects -->
+      <CardAstroComponent></CardAstroComponent>
 
     <!-- Footer -->
     <footer class="pt-2 text-primary text-xs">

@@ -1,0 +1,113 @@
+---
+import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
+import PageLayoutAstroComponent from '../components/PageLayout.astro';
+import { Image } from 'astro:assets';
+import NavAstroComponent from '../components/Nav.astro';
+import AchievementAstroComponent from '../components/Achievement.astro';
+import EducatioinAstroComponent from '../components/Educatioin.astro';
+import SkillsAstroComponent from '../components/Skills.astro';
+import ExperienceAstroComponent from '../components/Experience.astro';
+
+const year = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayoutAstroComponent
+  title="Professional Journey | Chhean"
+  description="Education and professional background for Bunchhean Chhoung"
+>
+  <PageLayoutAstroComponent>
+    <main class="flex min-h-screen flex-col gap-14 sm:gap-14">
+      <!-- Intro -->
+      <section>
+        <div class="flex flex-row gap-8 sm:flex-row sm:items-center justify-between sm:justify-between">
+          <!-- profile section -->
+          <div>
+            <button
+              id="theme-toggle"
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Switch theme"
+              class="block cursor-pointer mt-2 sm:mt-11 md:mt-11 appearance-none rounded-full border-0 bg-transparent p-0"
+            >
+              <span class="relative block h-[60px] w-[60px]">
+                <Image
+                  src={`${baseUrl}icon-dark.svg`}
+                  alt="Profile picture"
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-light absolute inset-0 h-[40px] w-[40px]  object-cover"
+                />
+                <Image
+                  src={`${baseUrl}icon-white.svg`}
+                  alt=""
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-dark absolute inset-0 h-[40px] w-[40px] object-cover"
+                />
+              </span>
+            </button>
+          </div>
+          <div class="sm:mt-2">
+            <NavAstroComponent />
+          </div>
+        </div>
+      </section>
+
+    <!-- Header -->
+     <section>
+      <p class="mb-4 mt-2 font-medium text-sm">Professional Journey.</p>
+      <p class="text-sm text-muted">My education, work experience, technical skills, certifications, and notable achievements. </p>
+     </section>
+    <!-- <p class="mt-2 text-sm text-muted">My education, work experience, technical skills, certifications, and notable achievements. </p> -->
+
+    <!-- body -->
+    <div class="flex flex-col gap-6 text-sm leading-relaxed">
+      <!--<ExperienceAstroComponent />-->
+      <EducatioinAstroComponent/>
+      <SkillsAstroComponent/>
+      <AchievementAstroComponent/>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-2 text-primary text-xs">
+      <span class="inline-flex items-center gap-2">
+        © {year} Chhean. All rights reserved.
+      </span>
+    </footer>
+  </main>
+  </PageLayoutAstroComponent>
+</BaseLayoutAstroComponent>
+
+<script>
+  const initializeThemeToggle = () => {
+    const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+
+    if (themeToggle) {
+      const root = document.documentElement;
+      const getTheme = () => root.dataset.theme ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      const updateThemeToggle = () => {
+        const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+        themeToggle.setAttribute('title', `Switch to ${nextTheme} mode`);
+      };
+
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = nextTheme;
+        localStorage.setItem('theme', nextTheme);
+        updateThemeToggle();
+      });
+
+      updateThemeToggle();
+    }
+  };
+
+  document.addEventListener('astro:page-load', initializeThemeToggle);
+  initializeThemeToggle();
+</script>
