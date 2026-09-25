@@ -39,7 +39,7 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
     {orderedYears.map((year) => (
       // <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-[72px_1fr] sm:gap-x-4 md:grid-cols-[96px_1fr] md:gap-x-6 lg:gap-x-8">
       <div>
-        <p class="text-xs sm:text-sm text-muted mb-4 font-normal">{year}</p>
+        <p class="text-xs sm:text-sm text-muted mb-2 font-normal">{year}</p>
         <div class="space-y-6 sm:space-y-8 md:space-y-10">
           {groups[year].map((project) => (
             <article class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5">
@@ -64,7 +64,7 @@ const orderedYears = Object.keys(groups).sort((a, b) => {
                   </svg>
                 </a>
 
-                <p class="max-w-xl text-sm sm:text-sm text-muted leading-relaxed">
+                <p class="max-w-xl text-sm text-muted ">
                   {project.description}
                 </p>
 

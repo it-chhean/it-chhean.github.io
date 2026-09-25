@@ -20,7 +20,7 @@ const { label, items } = Astro.props;
 ---
 
 <div>
-  <h2 class="text-sm text-fg/80 mb-4"><em>{label}</em></h2>
+  <h2 class="text-sm text-fg/80 mb-2"><em>{label}</em></h2>
   <ul class="list-none m-0 p-0 flex flex-cols gap-6">
     {items.map((item) => <LinkItem {...item} />)}
   </ul>
