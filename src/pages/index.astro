@@ -2,8 +2,9 @@
 import BaseLayoutAstroComponent from '../layouts/BaseLayout.astro';
 import LinkColumn from '../components/ui/LinkColumn.astro';
 import PageLayoutAstroComponent from '../components/PageLayout.astro';
-import { Image } from 'astro:assets';
 import NavAstroComponent from '../components/Nav.astro';
+import ExperienceAstroComponent from '../components/Experience.astro';
+import EducationAstroComponent from '../components/Education.astro';
 import CardAstroComponent, { Card } from '../components/ui/Card.astro';
 
 const building = [
@@ -40,7 +41,6 @@ const columns = [
 ];
 
 const year = new Date().getFullYear();
-const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayoutAstroComponent
@@ -48,59 +48,15 @@ const baseUrl = import.meta.env.BASE_URL;
   description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable."
 >
   <PageLayoutAstroComponent>
-    <main class="flex min-h-screen flex-col gap-8 sm:gap-8">
-      <!-- Intro -->
-      <section>
-        <div class="flex flex-col gap-0 sm:gap-8 sm:flex-row sm:items-center justify-between sm:justify-between">
-          <!-- profile section -->
-          <div>
-            <button
-              id="theme-toggle"
-              type="button"
-              aria-label="Switch to dark mode"
-              title="Switch theme"
-              class="block cursor-pointer mt-2 sm:mt-11 md:mt-11 appearance-none rounded-full border-0 bg-transparent p-0"
-            >
-              <span class="relative block h-[60px] w-[60px]">
-                <Image
-                  src={`${baseUrl}icon-dark.svg`}
-                  alt="Profile picture"
-                  width={230}
-                  height={230}
-                  format="webp"
-                  loading="eager"
-                  class="theme-image-light absolute inset-0 h-[40px] w-[40px]  object-cover"
-                />
-                <Image
-                  src={`${baseUrl}icon-white.svg`}
-                  alt=""
-                  width={230}
-                  height={230}
-                  format="webp"
-                  loading="eager"
-                  class="theme-image-dark absolute inset-0 h-[40px] w-[40px] object-cover"
-                />
-              </span>
-            </button>
-          </div>
-          <div class="sm:mt-2">
-            <NavAstroComponent />
-          </div>
-        </div>
-      </section>
-
+    <main class="flex min-h-screen flex-col gap-14 sm:gap-14">
+      
       <!-- Now -->
       <section class="">
         <h1 class="text-sm mb-3 font-normal text-fg">
           Hey, I'm Chhean !
         </h1>
-        <!--<p class="max-w-xl mb-3 text-muted text-sm ">
-          I'm a <span class="text-fg">" Full-Stack Developer  "</span> that's developing skill through doing, exploring passion and
-          interests, imbuing quality. Mindful that
-          <em>everything around me is someone&rsquo;s life work.</em>
-        </p>-->
 
-        <p class="max-w-xl mb-3 text-muted text-sm ">
+        <p class=" mb-3 text-muted text-sm ">
         I'm a <span class="text-fg">" full-stack developer "</span> generalist who cares deeply about system design, infrastructure, maintainance, scalable and  system.
         </p>
 
@@ -108,11 +64,6 @@ const baseUrl = import.meta.env.BASE_URL;
         I've built interfaces, research, document, and realtime infrastructure, AI agents, developer tools, and tinker with more on the side.
         </p>
 
-        <!--<p class="text-muted text-sm ">
-          All I want to do is build a useful software. Optimization, performance&mdash;the web/mobile is an endless medium of
-          opportunity and creativity of which I&rsquo;ve only scratched the
-          surface.
-        </p>-->
       </section>
 
       <!-- Columns -->

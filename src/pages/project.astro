@@ -15,46 +15,7 @@ const baseUrl = import.meta.env.BASE_URL;
   description="I'm a software developer. I focus on writing clean, maintainable code and building applications that deliver meaningful experiences. Every project is an opportunity to learn, improve, and create something valuable."
 >
   <PageLayoutAstroComponent>
-    <main class="flex min-h-screen flex-col gap-8 sm:gap-8">
-      <!-- Intro -->
-      <section>
-        <div class="flex flex-col gap-0 sm:gap-8  sm:flex-row sm:items-center justify-between sm:justify-between">
-          <!-- profile section -->
-          <div>
-            <button
-              id="theme-toggle"
-              type="button"
-              aria-label="Switch to dark mode"
-              title="Switch theme"
-              class="block cursor-pointer mt-2 sm:mt-11 md:mt-11 appearance-none rounded-full border-0 bg-transparent p-0"
-            >
-              <span class="relative block h-[60px] w-[60px]">
-                <Image
-                  src={`${baseUrl}icon-dark.svg`}
-                  alt="Profile picture"
-                  width={230}
-                  height={230}
-                  format="webp"
-                  loading="eager"
-                  class="theme-image-light absolute inset-0 h-[40px] w-[40px]  object-cover"
-                />
-                <Image
-                  src={`${baseUrl}icon-white.svg`}
-                  alt=""
-                  width={230}
-                  height={230}
-                  format="webp"
-                  loading="eager"
-                  class="theme-image-dark absolute inset-0 h-[40px] w-[40px] object-cover"
-                />
-              </span>
-            </button>
-          </div>
-          <div class="sm:mt-2">
-            <NavAstroComponent />
-          </div>
-        </div>
-      </section>
+    <main class="flex min-h-screen flex-col gap-14 sm:gap-14">
 
     <!-- Header -->
      <section>

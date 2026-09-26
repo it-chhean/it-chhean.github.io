@@ -1,12 +1,54 @@
 ---
+import { Image } from 'astro:assets';
+import Nav from './Nav.astro';
 
 interface Props {
   footerContent?: string;
 }
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 <div class="flex min-h-svh font-normal flex-col px-6 pt-[4vh] sm:px-6">
+      <section class="mb-14 md:mb-8">
+        <div class="flex max-w-[600px] mx-auto flex-col gap-0 sm:gap-8 sm:flex-row sm:items-center justify-between sm:justify-between">
+          <!-- profile section -->
+          <div>
+            <button
+              id="theme-toggle"
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Switch theme"
+              class="block cursor-pointer mt-2 sm:mt-11 md:mt-11 appearance-none rounded-full border-0 bg-transparent p-0"
+            >
+              <span class="relative block h-[60px] w-[60px]">
+                <Image
+                  src={`${baseUrl}icon-dark.svg`}
+                  alt="Profile picture"
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-light absolute inset-0 h-[40px] w-[40px]  object-cover"
+                />
+                <Image
+                  src={`${baseUrl}icon-white.svg`}
+                  alt=""
+                  width={230}
+                  height={230}
+                  format="webp"
+                  loading="eager"
+                  class="theme-image-dark absolute inset-0 h-[40px] w-[40px] object-cover"
+                />
+              </span>
+            </button>
+          </div>
+          <div class="sm:mt-2">
+            <Nav />
+          </div>
+        </div>
+      </section>
   <!-- Main content -->
-  <div class="mx-auto w-full max-w-[520px]">
+  <div class="mx-auto w-full max-w-[600px]">
     <slot />
   </div>
 
@@ -14,4 +56,5 @@ interface Props {
   <footer class="mx-auto mt-auto w-full max-w-[640px] pb-8 pt-16 text-left">
     <slot name="footer" />
   </footer>
+
 </div>

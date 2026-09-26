@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "devicon/devicon.min.css";
 
 @font-face {
   font-family: "Geist";
@@ -22,6 +21,23 @@
 }
 
 :root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+
   color-scheme: light;
   --app-background: #fafafa;
   --app-foreground: #18181b;
@@ -138,80 +154,25 @@ em {
 }
 
 .text-sm {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: var(--text-sm);
 }
 
 .text-base {
-  font-size: 18px;
+  font-size: var(--text-base);
 }
 
 .text-xs {
-  font-size: 15px;
+  font-size: var(--text-xs);
 }
 
 .text-lg {
-  font-size: 20px;
+  font-size: var(--text-lg);
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
     animation: none !important;
-  }
-}
-
-@layer components {
-  /* Fade-in animation on load */
-  .fade-in {
-    animation: fadeIn 0.6s ease forwards;
-  }
-
-  .fade-in-delay-1 {
-    animation-delay: 0.1s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-  }
-  .fade-in-delay-2 {
-    animation-delay: 0.2s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-  }
-  .fade-in-delay-3 {
-    animation-delay: 0.3s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-  }
-  .fade-in-delay-4 {
-    animation-delay: 0.4s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-  }
-  .fade-in-delay-5 {
-    animation-delay: 0.5s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
-    animation-duration: 0.6s;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }
 
